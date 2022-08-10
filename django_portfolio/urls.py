@@ -19,11 +19,14 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from portfolio import views
+from helpers.views import handle_not_found
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', views.home, name='home'),
     path('projects/', include('projects.urls')),
 ]
+
+handler404 = handle_not_found
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
