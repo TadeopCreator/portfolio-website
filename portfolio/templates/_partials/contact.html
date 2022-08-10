@@ -1,0 +1,74 @@
+<section class="mb-4">
+    <!--Section heading-->
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Get In Touch</h2>
+    <div class="row w-75 p-3 mx-auto">
+        <!--Grid column-->
+        <div class="col-md-9 mb-md-0 mb-5">
+            <form id="contact-form" name="contact-form" action="/" method="POST">
+                {% csrf_token %}
+                <!--Grid row-->
+                <div class="row p-3">
+                    <!--Grid column-->
+                    <div class="col-md-6 p-3">
+                        <div class="form-floating mb-0 text-dark">
+                            <input type="text" id="name" name="name" class="form-control">
+                            <label for="name" class="">Your name</label>
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-md-6 p-3">
+                        <div class="form-floating mb-0 text-dark">
+                            <input type="text" id="floatingInputValue" name="email" class="form-control">
+                            <label for="floatingInputValue">Your email</label>
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+                <!--Grid row-->
+                <div class="row p-3">
+                    <div class="col-md-12">
+                        <div class="form-floating mb-0 text-dark">
+                            <input type="text" id="subject" name="subject" class="form-control">
+                            <label for="subject" class="">Subject</label>
+                        </div>
+                    </div>
+                </div>
+                <!--Grid row-->
+                <div class="row p-3">
+                    <!--Grid column-->
+                    <div class="col-md-12 p-3">
+                        <div class="form-floating text-dark">
+                            <textarea type="text" id="floatingTextarea" name="message" rows="2" class="form-control md-textarea"></textarea>
+                            <label for="message">Your message</label>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+
+            <div class="text-center text-md-left">
+                <a class="btn btn-light" onclick="document.getElementById('contact-form').submit();">Send</a>
+            </div>
+            <div class="status"></div>
+        </div>
+        <!--Grid column-->
+        <div class="col-md-3 text-center pt-4">
+            <ul class="list-unstyled mb-0">
+                <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                    <p>La Plata, 502 7 & 8, ARG</p>
+                </li>
+
+                <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                    <p>+ 54 221 599 9714</p>
+                </li>
+
+                <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                    <p>tadeo.deluca2002@gmail.com</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>

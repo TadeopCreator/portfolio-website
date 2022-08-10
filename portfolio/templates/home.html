@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+{% if name %}
+    <div class="alert alert-success" role="alert">
+        Thanks {{ name }}. Email sent!        
+    </div>
+    <a type="button" href="/" class="btn btn-outline-light">Go back</a>
+    {% else %}
+    <header class="row">    
+        <div class="col-md-4">
+            <img src="{% static 'portfolio/profile.png' %}" class="rounded" alt="Profile Picture">
+        </div>
+    
+        <div class="col-md-8 my-auto">
+            <h1>I am <strong>Tadeo Deluca</strong></h1>
+            <h3>AWS Architect</h3>
+            <a class="btn btn-outline-light" href="{% static 'portfolio/Resume.pdf' %}" target="_blank">Download CV</a>
+        </div>
+    </header>
+    
+    {% if not name %}
+    <!--Skills-->
+    <br> <br>
+    <h3 class="text-center">Skills</h3>
+    <div class="mt-4  d-flex justify-content-center">    
+        <ul class="list-group w-50 border border-white">
+            <li class="list-group-item text-bg-dark p-3">Python</li>
+            <li class="list-group-item text-bg-dark p-3">AWS</li>
+            <li class="list-group-item text-bg-dark p-3">Django</li>
+            <li class="list-group-item text-bg-dark p-3">C#</li>
+            <li class="list-group-item text-bg-dark p-3">HTML CSS JS</li>
+          </ul>
+    </div>
+    <br> <br>
+    <div class="row my-4 text-center">
+        <h3>My Projects</h3>
+    
+        {% for project in projects %}
+            <div class="col-md-4 p-4">
+                <div class="card bg-black card-project" href="{{project.url}}">
+                    <div class="card-body">
+                        <h3>{{project.title}}</h3>
+                        <p>{{project.description}}</p>
+                        <img src="{{project.image.url}}" alt="{{project.title}}" class="img-fluid p-3" />
+                        {% if project.url %}
+                            <a class="btn btn-outline-light" href="{{project.url}}" target="_blank">Check Project</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+    <br> <br>
+    
+    <!--Contact Form-->
+    {% include '_partials/contact.html' %}
+{% endif %}
+
+{% endblock %}
