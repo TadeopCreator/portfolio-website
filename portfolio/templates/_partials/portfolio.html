@@ -1,0 +1,35 @@
+{% load static %}
+<div class="row" style="margin-top: 10rem;">
+    <div class="col-md-12 my-5">
+        <h3 class="fw-bolder" style="color: #CCD6F6;">Some Things I’ve Built</h3>
+    </div>    
+        {% for project in projects %}
+        <div class="row text-center"></div>
+            <div class="col-md-6">
+                <img src="https://picsum.photos/450/300" alt="{{project.title}}" class="img-fluid p-3" />                       
+            </div>
+            <div class="col-md-6 p-3">
+                <h6 class="fw-light" style="color:#57DFC2">Featured Project</h6>
+                <h3 class="fw-semibold" style="color: #CCD6F6;">{{project.title}}</h3>
+                <div class="container border border-secondary border-opacity-25 rounded my-3 p-2">
+                    <p style="color: #6B7691;">{{project.description}}</p>
+                </div>
+                <div class="d-flex">
+                    <a href="{{project.url}}" target="_blank">
+                        <svg style="color: #CCD6F6;" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                    </a>
+                    <p class="mx-3 mt-1" style="color: #6B7691;">VS Code
+                        Sublime Text
+                        Atom
+                        iTerm2
+                        Hyper</p>
+                </div>
+            </div>     
+        {% endfor %}
+        <div class="my-4 text-end">
+            <a type="button" href="/" class="btn btn-outline-success px-5 py-2" style="background-color: #0a192f; color: #57DFC2;" target="_blank">See More</a>
+        </div>
+    </div>
+</div>
