@@ -76,6 +76,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "django_portfolio.wsgi.application"
 
+PGPASSWORD = os.environ.get('PGPASSWORD')
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -85,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'portfolio_n0a4',
         'USER': 'tadeodeluca',
-        'PASSWORD': os.environ['PGPASSWORD'],
+        'PASSWORD': PGPASSWORD,
         'HOST': 'dpg-cjlokrgcfp5c73ak4ck0-a',
         'PORT': '5432',
     }
