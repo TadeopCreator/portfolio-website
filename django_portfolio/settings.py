@@ -31,11 +31,14 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = []
+if DEBUG:
+    ALLOWED_HOSTS = ['*']
+else:
+    ALLOWED_HOSTS = []
 
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+    RENDER_EXTERNAL_HOSTNAME = DATABASE_URL = env('RENDER_EXTERNAL_HOSTNAME')
+    if RENDER_EXTERNAL_HOSTNAME:
+        ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
 
@@ -50,16 +53,27 @@ INSTALLED_APPS = [
     "projects"
 ]
 
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
-]
+if not DEBUG:
+    MIDDLEWARE = [
+        'django.middleware.security.SecurityMiddleware',
+        'whitenoise.middleware.WhiteNoiseMiddleware',
+        "django.contrib.sessions.middleware.SessionMiddleware",
+        "django.middleware.common.CommonMiddleware",
+        "django.middleware.csrf.CsrfViewMiddleware",
+        "django.contrib.auth.middleware.AuthenticationMiddleware",
+        "django.contrib.messages.middleware.MessageMiddleware",
+        "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    ]
+else:
+    MIDDLEWARE = [
+        'django.middleware.security.SecurityMiddleware',
+        "django.contrib.sessions.middleware.SessionMiddleware",
+        "django.middleware.common.CommonMiddleware",
+        "django.middleware.csrf.CsrfViewMiddleware",
+        "django.contrib.auth.middleware.AuthenticationMiddleware",
+        "django.contrib.messages.middleware.MessageMiddleware",
+        "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    ]
 
 ROOT_URLCONF = "django_portfolio.urls"
 
@@ -86,27 +100,26 @@ DATABASE_URL = env('DATABASE_URL')
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
+if DEBUG:
+    PGDEVPASSWORD = env('PGDEVPASSWORD')
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'portfolio',
+            'USER': 'tadeodeluca',
+            'PASSWORD': PGDEVPASSWORD,
+            'HOST': '172.18.0.2',
+            'PORT': '5432',
+        }   
+    }
+else:
+    DATABASES = {
     'default': dj_database_url.config(
         default=DATABASE_URL,
         conn_max_age=600
     )
 }
-
-"""
-Development Database
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'portfolio',
-        'USER': 'tadeodeluca',
-        'PASSWORD': '1234',
-        'HOST': 'dpg-cjlokrgcfp5c73ak4ck0-a',
-        'PORT': '5432',
-    }   
-}
-"""
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -144,7 +157,11 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-if not DEBUG:
+if DEBUG:
+    STATICFILES_DIRS = [
+        BASE_DIR / "static"
+    ]
+else:
     # Tell Django to copy statics to the `staticfiles` directory
     # in your application directory on Render.
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
@@ -152,10 +169,6 @@ if not DEBUG:
     # Turn on WhiteNoise storage backend that takes care of compressing static files
     # and creating unique names for each version so they can safely be cached forever.
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-else:
-    STATICFILES_DIRS = [
-        BASE_DIR / "static"
-    ]
 
 MEDIA_ROOT = BASE_DIR / 'media'
 
