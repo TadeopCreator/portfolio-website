@@ -1,11 +1,13 @@
 databases:
-  - name: portfolio-postgresql
-    databaseName: postgresqlDB
+  - name: portfolio_postgresql
+    databaseName: postgresql_db
     user: tadeodeluca
+    plan: free
 
 services:
   - type: web
     name: tadeo-deluca
+    plan: free
     runtime: python
     buildCommand: "./build.sh"
     startCommand: "gunicorn django_portfolio.wsgi:application"
