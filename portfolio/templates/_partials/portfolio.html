@@ -2,7 +2,8 @@
 <div class="row" style="margin-top: 10rem;">
     <div class="col-md-12 my-2">
         <h3 class="fw-bolder" style="color: #CCD6F6;">Some Things I’ve Built</h3>
-    </div>    
+    </div>
+    {% if projects %}
         {% for project in projects %}
         {% if project.featured %}
         <div class="row text-center mb-4"></div>
@@ -26,5 +27,6 @@
             </div>
             {% endif %}
         {% endfor %}
+    {% endif %}
     </div>
 </div>

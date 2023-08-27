@@ -5,5 +5,7 @@
 __pycache__
 db.sqlite3
 media
+instructions docker.txt
 
 .env
+.DS_Store
