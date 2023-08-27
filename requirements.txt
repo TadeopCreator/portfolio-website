@@ -3,7 +3,10 @@ certifi==2022.6.15
 charset-normalizer==2.1.0
 dj-database-url==2.1.0
 Django==4.1
+django-environ==0.10.0
+gunicorn==21.2.0
 idna==3.3
+packaging==23.1
 Pillow==9.2.0
 psycopg2==2.9.6
 psycopg2-binary==2.9.7
