@@ -1,6 +1,6 @@
 databases:
   - name: portfolio-postgresql
-    databaseName: postgresql-db
+    databaseName: postgresqlDB
     user: tadeodeluca
 
 services:
