@@ -8,6 +8,9 @@ db.sqlite3
 db.sqlite3-journal
 media
 
+instructions docker.txt
+.env
+
 # VSCode
 .vscode/*
 !.vscode/settings.json
