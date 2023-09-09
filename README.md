@@ -1,7 +1,7 @@
 # My Portfolio Website
 
-![GitHub last commit](https://img.shields.io/github/last-commit/your-username/your-repo-name)
-![GitHub repo size](https://img.shields.io/github/repo-size/your-username/your-repo-name)
+![GitHub last commit](https://img.shields.io/github/last-commit/TadeopCreator/portfolio-website)
+![GitHub repo size](https://img.shields.io/github/repo-size/TadeopCreator/portfolio-website)
 
 A Dockerized Django portfolio website to showcase my work, skills, and more.
 
