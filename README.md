@@ -33,13 +33,13 @@ To get started with this project, follow these steps:
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/TadeopCreator/portfolio-website.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd your-repo-name
+   cd django-portfolio
    ```
 
 3. Create a virtual environment (recommended):
