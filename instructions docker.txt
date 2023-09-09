@@ -1,6 +1,3 @@
-# django-portfolio
-DJANGO PORTFOLIO
-
 Super user:
 user: admin
 pass: Admin0724
