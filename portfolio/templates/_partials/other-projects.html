@@ -1,6 +1,6 @@
 {% load static %}
 <div class="container">
-    <div class="row" style="margin-top: 10rem;">
+    <div class="row" style="margin-top: 6rem;">
         <div class="col-md-12 my-2">
             <h3 class="fw-bolder" style="color: #CCD6F6;">Other Noteworthy Projects</h3>
         </div>    
@@ -30,7 +30,7 @@
                         </div>                       
                         <h3 style="color: #CCD6F6;">{{project.title}}</h3>
                         <p class="light-blue-color">{{project.description}}</p>
-                        <p class="light-blue-color fw-light">JS AWS Python</p>
+                        <p class="light-blue-color fw-light">{{project.tags}}</p>
                       </div>                 
                 </div>
                 {% endif %}
