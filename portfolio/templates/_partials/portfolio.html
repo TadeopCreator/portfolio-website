@@ -1,5 +1,5 @@
 {% load static %}
-<div class="row" style="margin-top: 10rem;">
+<div class="row" style="margin-top: 6rem;">
     <div class="col-md-12 my-2">
         <h3 class="fw-bolder" style="color: #CCD6F6;">Some Things I’ve Built</h3>
     </div>
@@ -7,12 +7,15 @@
         {% for project in projects %}
         {% if project.featured %}
         <div class="row text-center mb-4"></div>
-            <div class="col-md-6">
+            <div class="col-md-6 d-none d-md-block">
                 <img class="img-fluid rounded" src="{{project.image.url}}" alt="{{project.title}}"/>                       
             </div>
             <div class="col-md-6 p-3">
                 <h6 class="fw-light main-text-color">Featured Project</h6>
                 <h3 class="fw-semibold" style="color: #CCD6F6;">{{project.title}}</h3>
+                <div class="col-md-6 d-block d-md-none d-lg-none">
+                    <img class="img-fluid rounded" src="{{project.image.url}}" alt="{{project.title}}"/>                       
+                </div>
                 <div class="container border border-secondary border-opacity-25 rounded my-3 p-2">
                     <p class="light-blue-color">{{project.description}}</p>
                 </div>
