@@ -7,6 +7,7 @@ class Project(models.Model):
     description = CharField(max_length=500)
     image = ImageField(upload_to='portfolio/images', blank=True)
     url = URLField(blank=True)
+    origin = CharField(max_length=20, blank=True)
     year = models.IntegerField(blank=True, null=True) 
     tags = CharField(max_length=100, blank=True)
     featured = models.BooleanField(default=False, blank=True)
