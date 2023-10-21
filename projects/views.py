@@ -6,6 +6,7 @@ from portfolio.models import Project
 
 # Create your views here.
 def render_projects(request):
-    projects = Project.objects.all()
-
+    # Get all project order by year descending
+    projects = Project.objects.all().order_by('-year')
+    
     return render(request, 'archive.html', {'projects': projects})

@@ -22,7 +22,7 @@
         </div>
     </div>
     {% for project in projects %}
-    <div class="row list-e mx-auto p-2 align-items-center justify-content-start mt-2">
+    <div onclick="location.href='{{project.url}}';" style="cursor: pointer;" class="row list-e mx-auto p-2 align-items-center justify-content-start mt-2">
         <div class="col-md-1">
             <p class="main-text-color pt-2">{{project.year}}</p>        
         </div>
