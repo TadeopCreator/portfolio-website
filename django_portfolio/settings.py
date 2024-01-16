@@ -31,9 +31,9 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = True
 
 if DEBUG:
-    ALLOWED_HOSTS = ['*','tadeop.pythonanywhere.com']
+    ALLOWED_HOSTS = ['tadeop.pythonanywhere.com', 'www.tadeodeluca.com']
 else:
-    ALLOWED_HOSTS = ['tadeop.pythonanywhere.com']
+    ALLOWED_HOSTS = ['tadeop.pythonanywhere.com', 'www.tadeodeluca.com']
 
 # Application definition
 
