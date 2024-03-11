@@ -5,8 +5,8 @@
             <h3 class="fw-bolder" style="color: #CCD6F6;">Other Noteworthy Projects</h3>
         </div>    
         <div class="row text-center mb-4"></div>
-            {% for project in projects   %}
-            {% if not project.featured %}
+            {% for project in projects %}
+            {% if not project.featured %}                                                                
                 <div class="col-md-4">
                     <div onclick="location.href='{{project.url}}';" style="cursor: pointer;" class="container border border-secondary border-opacity-25 rounded my-3 p-4" style="background-color: #112140;">
                         <div class="d-flex justify-content-between mb-2">
