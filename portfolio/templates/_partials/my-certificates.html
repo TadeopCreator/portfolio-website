@@ -1,0 +1,39 @@
+{% load static %}
+<div class="container">
+    <div class="row" style="margin-top: 6rem;">
+        <div class="col-md-12 my-2">
+            <h3 class="fw-bolder" style="color: #CCD6F6;">My Certificates</h3>
+        </div>
+        <div class="row text-center mb-4">
+            <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner">
+                   {% for cert in certificates %}
+                    <div class="carousel-item{% if forloop.first %} active{% endif %}">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6 text-center">
+                                <div onclick="window.open('{{cert.url}}');" style="cursor: pointer;" class="container border border-secondary border-opacity-25 rounded my-3 p-4" style="background-color: #112140;">
+                                    <img src="{{cert.image}}" class="img-fluid rounded rounded-4" alt="{{cert.title}}" style="max-height: 350px;">
+                                    <div class="pt-3">
+                                        <h5 class="text-light fs-4">{{cert.title}}</h5>
+                                        <div class="px-5">
+                                            <p class="px-3 light-blue-color text-start fs-6">{{cert.desc}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" style="background-color: #0a192f33; border-radius: 50%;">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next" style="background-color: #0a192f33; border-radius: 50%;">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>                        
+        </div>            
+    </div>
+</div>
