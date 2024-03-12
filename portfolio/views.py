@@ -1,8 +1,16 @@
 from django.shortcuts import render
-from .models import Project
+from google.cloud import firestore
+from firestore_config import db
 
 # Create your views here.
 def home(request):
-    projects = Project.objects.all()
+    # Get document from projects collection
+    docs_ref = db.collection('projects').order_by('rank', direction=firestore.Query.ASCENDING).stream()
+    docs = [doc.to_dict() for doc in docs_ref]
 
-    return render(request, 'home.html', {'projects': projects})
+    # Pasa los documentos al contexto
+    context = {
+        'projects': docs
+    }
+
+    return render(request, 'home.html', context)

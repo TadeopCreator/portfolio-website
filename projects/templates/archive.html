@@ -30,7 +30,11 @@
             <h5 style="color: #CCD6F6;">{{project.title}}</h5>
         </div>
         <div class="col-md-5">
-            <h6 class="fw-light" style="color: #8892B0;">{{project.tags}}</h6>
+            <div class="mx-3 mt-1">
+                {% for tag in project.tags %}
+                    <span class="badge rounded-pill text-bg-secondary">{{ tag }}</span>
+                {% endfor %}
+            </div>
         </div>
         <div class="col-md-1 text-end">
             <a href="{{ project.url }}" target="_blank">                

@@ -1,12 +1,16 @@
 from django.shortcuts import render
-import sys
-
-sys.path.append("/Users/tadeodeluca/Documents/django-portfolio/portfolio")
-from portfolio.models import Project
+from google.cloud import firestore
+from firestore_config import db
 
 # Create your views here.
-def render_projects(request):
-    # Get all project order by year descending
-    projects = Project.objects.all().order_by('-year')
-    
-    return render(request, 'archive.html', {'projects': projects})
+def render_projects(request):    
+    # Get document from projects collection
+    docs_ref = db.collection('projects').order_by('year', direction=firestore.Query.DESCENDING).stream()
+    docs = [doc.to_dict() for doc in docs_ref]
+
+    # Pasa los documentos al contexto
+    context = {
+        'projects': docs
+    }
+
+    return render(request, 'archive.html', context)
