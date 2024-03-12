@@ -11,6 +11,7 @@ media
 instructions-docker.txt
 application_default_credentials.json
 .env
+**/.DS_Store
 
 # VSCode
 .vscode/*
