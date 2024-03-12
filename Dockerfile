@@ -13,4 +13,4 @@ COPY . .
 ENV GOOGLE_APPLICATION_CREDENTIALS="./application_default_credentials.json"
 
 # Run the Django application
-CMD ["python", "-u", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
