@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<div style="margin-top: 5rem;">
+    <div class="col-md-8 my-5 text-start">
+        <h1 class="display-2 fw-bolder" style="color: #CCD6F6;">Storytelling AI</h1>
+    </div>
+    <div class="col-md-12 mb-4 text-center">
+        <img class="border border-success border-2 rounded rounded-3 border-opacity-50 mx-auto" style="max-width: 65%;" src="https://storage.googleapis.com/projects_portfolio_website_thumbnails/storytelling-ai.png" alt="Storytelling AI Thumbnail"/>
+    </div>
+    <div class="col-md-8 mt-5 mb-3 text-start">
+        <h2 class="fw-bolder" style="color: #CCD6F6;">Behind Storytelling AI</h2>
+    </div>
+    <h5 class="fw-light" style="color: #CCD6F6; line-height: 1.5;">Storytelling AI is a bridge between languages, cultures, and stories. Born from the desire to connect diverse communities and break down language barriers, this project aims to bring writers from around the globe to Spanish-speaking audiences. By seamlessly translating stories from any language into Spanish and crafting captivating narrated videos. I celebrate the diversity of human expression and ensure that every story has the opportunity to be shared and appreciated, regardless of its origin.</h5>
+    <div class="col-md-8 mt-5 mb-3 text-start">
+        <h4 class="fw-bolder main-text-color">Teaser video coming soon...</h4>
+    </div>    
+    <div class="col-md-8 mt-5 mb-3 text-start">
+        <h2 class="fw-bolder" style="color: #CCD6F6;">Demo video</h2>
+    </div>
+    <h5 class="fw-light mb-4" style="color: #CCD6F6; line-height: 1.5;">Video demonstration of the app's output when encountering an entry from a Horror genre story:</h5>
+    <div class="ratio ratio-16x9">
+        <iframe src="https://www.youtube.com/embed/kxEMzDUpaMw" title="YouTube video" allowfullscreen></iframe>
+    </div>
+    <div class="col-md-8 mt-5 mb-3 text-start">
+        <h2 class="fw-bolder" style="color: #CCD6F6;">Multilingual Narrative Storytelling</h2>
+    </div>
+    <h5 class="fw-light mb-4" style="color: #CCD6F6; line-height: 1.5;">Storytelling AI is for now a locally-operating web app that utilizes AI technologies such as <span class="main-text-color">OpenAI GPT-4</span>, <span class="main-text-color">Whisper</span>, <span class="main-text-color">Google Cloud Translation API</span>, <span class="main-text-color">XTTS</span>, <span class="main-text-color">Stable diffusion XL</span>, and <span class="main-text-color">Mistral 7B</span>.</h5>    
+    <h5 class="fw-light" style="color: #CCD6F6; line-height: 1.5;">It translates any language story into Spanish, generating narrated videos with music, sound effects, images, and automated summaries. The app also performs sentence-level suspense analysis using <span class="main-text-color">SpaCy</span>. Developed with <span class="main-text-color">Streamlit</span>, <span class="main-text-color">Python</span> and <span class="main-text-color">JSX</span>.</h5>    
+    <div class="col-md-8 mt-5 mb-3 text-start">
+        <h2 class="fw-bolder" style="color: #CCD6F6;">Architecture</h2>        
+    </div>
+    <div class="col-md-12 mb-4 text-center">
+        <img class="border border-success border-2 rounded rounded-3 border-opacity-50 mx-auto" style="max-width: 65%;" src="https://storage.googleapis.com/portfolio_static_content/AI-Storyteller-architecture.jpg" alt="Storytelling AI Architecture"/>
+    </div>    
+    <h5 class="fw-light mb-4" style="color: #CCD6F6; line-height: 1.5;">The architecture of this web application involves receiving the story text through a <span class="main-text-color">Streamlit</span> web interface developed in <span class="main-text-color">Python</span>. The text is translated from any language to Spanish using the Google <span class="main-text-color">Cloud Translation API</span>. Then, the translated text undergoes automated narration using <span class="main-text-color">OpenAI GPT-4</span> and <span class="main-text-color">XTTS</span> models, enriched with images from <span class="main-text-color">Stable Diffusion XL</span>.</h5>
+    <h5 class="fw-light" style="color: #CCD6F6; line-height: 1.5;">The <span class="main-text-color">Mistral 7B</span> model alongside <span class="main-text-color">SpaCy</span> are used for natural language processing (<span class="main-text-color">NLP</span>) to dynamically place sound effects in the narration. Finally, the generated elements are combined into a video with music using <span class="main-text-color">After Effects Scripting</span>, providing users with a seamless and immersive storytelling experience.</h5>
+</div>
+<br><br>
+{% endblock %}

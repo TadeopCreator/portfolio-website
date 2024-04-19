@@ -14,3 +14,7 @@ def render_projects(request):
     }
 
     return render(request, 'archive.html', context)
+
+
+def storytelling_ai(request):
+    return render(request, 'storytelling_ai.html')
