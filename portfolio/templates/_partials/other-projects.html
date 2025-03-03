@@ -1,52 +1,248 @@
 <div class="container">
     <div class="row" style="margin-top: 6rem;">
         <div class="col-md-12 my-2">
-            <h3 class="fw-bolder" style="color: #CCD6F6;">Other Noteworthy Projects</h3>
+            <h3 class="fw-bolder section-title">
+                Other Noteworthy Projects
+            </h3>
         </div>    
         <div class="row text-center mb-4"></div>
-        {% for project in projects %}
-        {% if not project.featured %}
-            {% if forloop.counter <= 10 %}                                          
-                    <div class="col-md-4">
-                        <div onclick="window.open('{{project.url}}');" style="cursor: pointer;" class="container border border-secondary border-opacity-25 rounded my-3 p-4" style="background-color: #112140;">
-                            <div class="d-flex justify-content-between mb-2">
-                                <svg class="main-text-color" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-folder" viewBox="0 0 16 16">
-                                    <path d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4H2.19zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707z"/>
-                                </svg>
-                                <a class="footer-button" href="{{project.url}}" target="_blank">
-                                    {% if project.origin == 'github' or project.origin == '' %}
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+        <div class="row other-projects-grid">
+            {% for project in projects %}
+            {% if not project.featured %}
+                {% if forloop.counter <= 9 %}                                          
+                    <div class="col-md-4 mb-4">
+                        <div class="other-project-card" onclick="window.open('{{project.url}}');">
+                            <div class="project-top">
+                                <div class="project-folder">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-folder" viewBox="0 0 16 16">
+                                        <path d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4H2.19zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707z"/>
                                     </svg>
-                                {% endif %}
-                                {% if project.origin == 'medium' %}
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-medium" viewBox="0 0 16 16">
-                                        <path d="M9.025 8c0 2.485-2.02 4.5-4.513 4.5A4.506 4.506 0 0 1 0 8c0-2.486 2.02-4.5 4.512-4.5A4.506 4.506 0 0 1 9.025 8zm4.95 0c0 2.34-1.01 4.236-2.256 4.236-1.246 0-2.256-1.897-2.256-4.236 0-2.34 1.01-4.236 2.256-4.236 1.246 0 2.256 1.897 2.256 4.236zM16 8c0 2.096-.355 3.795-.794 3.795-.438 0-.793-1.7-.793-3.795 0-2.096.355-3.795.794-3.795.438 0 .793 1.699.793 3.795z"/>
-                                    </svg>
-                                {% endif %}
-                                {% if project.origin == 'other' %}
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="2" height="22" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
-                                        <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
-                                    </svg>
-                                {% endif %}
-                                </a>
+                                </div>
+                                <div class="project-links">
+                                    <a class="project-link" href="{{project.url}}" target="_blank" onclick="event.stopPropagation();">
+                                        {% if project.origin == 'github' or project.origin == '' %}
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                        </svg>
+                                    {% endif %}
+                                    {% if project.origin == 'medium' %}
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-medium" viewBox="0 0 16 16">
+                                            <path d="M9.025 8c0 2.485-2.02 4.5-4.513 4.5A4.506 4.506 0 0 1 0 8c0-2.486 2.02-4.5 4.512-4.5A4.506 4.506 0 0 1 9.025 8zm4.95 0c0 2.34-1.01 4.236-2.256 4.236-1.246 0-2.256-1.897-2.256-4.236 0-2.34 1.01-4.236 2.256-4.236 1.246 0 2.256 1.897 2.256 4.236zM16 8c0 2.096-.355 3.795-.794 3.795-.438 0-.793-1.7-.793-3.795 0-2.096.355-3.795.794-3.795.438 0 .793 1.699.793 3.795z"/>
+                                        </svg>
+                                    {% endif %}
+                                    {% if project.origin == 'other' %}
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                                            <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                                        </svg>
+                                    {% endif %}
+                                    </a>
+                                </div>
                             </div>                       
-                            <h3 style="color: #CCD6F6;">{{project.title}}</h3>
-                            <p class="light-blue-color">{{project.desc}}</p>
-                            <div class="mx-3 mt-1">
+                            <h3 class="project-title">{{project.title}}</h3>
+                            <div class="project-description">
+                                <p>{{project.desc}}</p>
+                            </div>
+                            <div class="project-tags">
                                 {% for tag in project.tags %}
-                                    <span class="badge rounded-pill text-bg-secondary">{{ tag }}</span>
+                                    <span class="project-tag">{{ tag }}</span>
                                 {% endfor %}
                             </div>
                         </div>                 
                     </div>
-                    {% endif %}
                 {% endif %}
-            {% endfor %}            
-            <div class="my-4 text-center">
-                <a type="button" href="{% url 'projects:projects' %}" class="btn btn-outline-success px-5 py-2 main-text-color bg-main-color">Show More</a>
-            </div>
+            {% endif %}
+        {% endfor %}            
+        </div>
+        <div class="my-4 text-center">
+            <a href="{% url 'projects:projects' %}" class="show-more-button">
+                <span>Show More</span>
+            </a>
         </div>
     </div>
 </div>
+
+<style>
+    .other-projects-grid {
+        margin-top: 20px;
+    }
+    
+    .other-project-card {
+        background-color: rgba(17, 33, 64, 0.7);
+        border: 1px solid rgba(100, 255, 218, 0.1);
+        border-radius: 8px;
+        padding: 2rem;
+        height: 100%;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+        position: relative;
+        backdrop-filter: blur(5px);
+    }
+    
+    .other-project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 30px -15px rgba(2, 12, 27, 0.7);
+        background-color: rgba(23, 42, 69, 0.8);
+    }
+    
+    .project-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 30px;
+    }
+    
+    .project-folder {
+        color: #57DFC2;
+    }
+    
+    .project-links {
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+    }
+    
+    .project-link {
+        color: #8892B0;
+        margin-left: 15px;
+        transition: color 0.2s ease;
+    }
+    
+    .project-link:hover {
+        color: #57DFC2;
+        transform: translateY(-3px);
+    }
+    
+    .project-title {
+        color: #CCD6F6;
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        transition: color 0.2s ease;
+    }
+    
+    .other-project-card:hover .project-title {
+        color: #57DFC2;
+    }
+    
+    .project-description {
+        color: #8892B0;
+        font-size: 16px;
+        flex-grow: 1;
+        margin-bottom: 20px;
+    }
+    
+    .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: auto;
+    }
+    
+    .project-tag {
+        background-color: #1E3A5F;
+        color: #8892B0;
+        font-family: monospace;
+        font-size: 12px;
+        padding: 5px 10px;
+        border-radius: 15px;
+        margin-right: 8px;
+        margin-bottom: 8px;
+        transition: all 0.2s ease;
+    }
+    
+    .project-tag:hover {
+        background-color: rgba(87, 223, 194, 0.2);
+        color: #57DFC2;
+    }
+    
+    .show-more-button {
+        background-color: transparent;
+        color: #57DFC2;
+        border: 1px solid #57DFC2;
+        border-radius: 4px;
+        padding: 10px 25px;
+        font-family: monospace;
+        font-size: 16px;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+        text-decoration: none;
+    }
+    
+    .show-more-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(87, 223, 194, 0.1);
+        transition: all 0.4s ease;
+    }
+    
+    .show-more-button:hover {
+        background-color: rgba(87, 223, 194, 0.1);
+        color: #57DFC2;
+        transform: translateY(-5px);
+        box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
+        text-decoration: none;
+    }
+    
+    .show-more-button:hover::before {
+        left: 100%;
+    }
+    
+    /* Animation for cards */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .col-md-4 {
+        opacity: 0;
+        animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    .col-md-4:nth-child(3n+1) {
+        animation-delay: 0.1s;
+    }
+    
+    .col-md-4:nth-child(3n+2) {
+        animation-delay: 0.2s;
+    }
+    
+    .col-md-4:nth-child(3n+3) {
+        animation-delay: 0.3s;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Animate project cards when they come into view
+        const projectCards = document.querySelectorAll('.col-md-4');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        projectCards.forEach(card => {
+            observer.observe(card);
+        });
+    });
+</script>

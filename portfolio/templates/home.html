@@ -1,18 +1,44 @@
 {% extends 'layout.html' %}
 {% block content %}
-    <div class="row" style="margin-top: 2rem;">
+    <div class="row full-height-hero d-flex flex-column justify-content-center">
         <div class="col-md-10 my-5 mx-auto">
             <h6 class="fw-light main-text-color">Hi, my name is</h6>
-            <h1 class="display-2 fw-bolder" style="color: #CCD6F6;">Tadeo Deluca.</h1>
-            <h1 class="display-3 fw-bold" style="color: #8892B0;">I build scalable cloud solutions.</h1>
+            <div class="typing-effect-container">
+                <h1 class="display-2 fw-bolder typing-effect" style="color: #CCD6F6;">Tadeo Deluca.</h1>
+            </div>
+            <h1 class="display-5 fw-bold" style="color: #8892B0;">I build software for millions of users.</h1>
         </div>
         <div class="row">
             <div class="col-md-6 offset-md-1">
-                <p class="fw-light" style="color: #6B7691;">I'm an advance computer science student at <a class="link-offset-2 link-underline link-underline-opacity-50" style="color: #57DFC2;" href="https://unlp.edu.ar/" target="_blank">UNLP</a> and a Google Cloud Associate Cloud Engineer certified.</p>
+                <p class="fw-light" style="color: #6B7691;">
+                    I'm a Computer Science Engineer from 
+                    <a class="institution-link unlp-link" href="https://unlp.edu.ar/" target="_blank" data-institution="UNLP">
+                        <span class="institution-text">UNLP</span>
+                        <span class="institution-tooltip">Universidad Nacional de La Plata</span>
+                    </a> 
+                    and a Google Cloud Associate Cloud Engineer certified. Currently working at 
+                    <a class="institution-link meli-link" href="https://www.mercadolibre.com.ar/" target="_blank" data-institution="MELI">
+                        <span class="institution-text">Mercado Libre</span>
+                        <span class="institution-tooltip">Latin America's leading e-commerce platform</span>
+                    </a>.
+                </p>
             </div>
         </div>
         <div class="col-md-10 my-4 mx-auto">
-            <a type="button" href="https://storage.googleapis.com/portfolio_static_content/Resume-Tadeo-Deluca.pdf" class="btn btn-outline-success px-5 py-2" style="background-color: #0a192f; color: #57DFC2;" target="_blank">Resume</a>
+            <a href="https://storage.googleapis.com/portfolio_static_content/Resume-Tadeo-Deluca.pdf" class="btn resume-button-home" target="_blank">
+                <span class="resume-text">Resume</span>
+            </a>
+        </div>
+        
+        <div class="scroll-indicator-container">
+            <a href="#about-me" class="scroll-indicator">
+                <div class="scroll-arrow">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="scroll-text">Scroll Down</div>
+            </a>
         </div>
     </div>
 
@@ -31,4 +57,312 @@
     <!--Contact-->
     {% include '_partials/contact.html' %}
 
+<style>
+    .full-height-hero {
+        min-height: 100vh;
+        position: relative;
+        padding-bottom: 80px;
+    }
+    
+    .scroll-indicator-container {
+        position: absolute;
+        bottom: 40px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        animation: fadeInUp 1.5s ease-out 1s forwards;
+        opacity: 0;
+    }
+    
+    .scroll-indicator {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        transition: transform 0.3s ease;
+    }
+    
+    .scroll-indicator:hover {
+        transform: translateY(5px);
+    }
+    
+    .scroll-arrow {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+    
+    .scroll-arrow span {
+        display: block;
+        width: 15px;
+        height: 15px;
+        border-bottom: 2px solid #57DFC2;
+        border-right: 2px solid #57DFC2;
+        transform: rotate(45deg);
+        margin: -6px;
+        animation: scrollAnimation 2s infinite;
+    }
+    
+    .scroll-arrow span:nth-child(2) {
+        animation-delay: -0.2s;
+    }
+    
+    .scroll-arrow span:nth-child(3) {
+        animation-delay: -0.4s;
+    }
+    
+    .scroll-text {
+        margin-top: 0;
+        color: #57DFC2;
+        font-size: 14px;
+        letter-spacing: 1px;
+        font-weight: 300;
+    }
+    
+    @keyframes scrollAnimation {
+        0% {
+            opacity: 0;
+            transform: rotate(45deg) translate(-10px, -10px);
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            transform: rotate(45deg) translate(10px, 10px);
+        }
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .resume-button-home {
+        background-color: transparent;
+        color: #57DFC2;
+        border: 1px solid #57DFC2;
+        border-radius: 4px;
+        padding: 10px 25px;
+        font-family: monospace;
+        font-size: 16px;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+    }
+    
+    .resume-button-home::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(87, 223, 194, 0.1);
+        transition: all 0.4s ease;
+    }
+    
+    .resume-button-home:hover {
+        background-color: rgba(87, 223, 194, 0.1);
+        color: #57DFC2;
+        transform: translateY(-5px);
+        box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .resume-button-home:hover::before {
+        left: 100%;
+    }
+    
+    .resume-button-home:active {
+        transform: translateY(-2px);
+    }
+    
+    .typing-effect-container {
+        height: auto;
+        min-height: 4.5rem; /* Reserve space for the text */
+        margin-bottom: 0.5rem;
+    }
+    
+    .typing-effect {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        animation: blink-caret 0.75s step-end infinite;
+        min-height: 1em; /* Ensure minimum height even when empty */
+    }
+    
+    @keyframes blink-caret {
+        from, to { border-right-color: transparent; }
+        50% { border-right-color: #57DFC2; }
+    }
+    
+    /* Add a subtle text shadow for better visibility */
+    .display-2 {
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        line-height: 1.2; /* Consistent line height */
+    }
+    
+    .institution-link {
+        position: relative;
+        text-decoration: none;
+        color: #57DFC2;
+        font-weight: 500;
+        padding: 2px 4px;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+    
+    .institution-link::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: #57DFC2;
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.3s ease;
+    }
+    
+    .institution-link:hover {
+        background-color: rgba(87, 223, 194, 0.1);
+        color: #57DFC2;
+        text-decoration: none;
+    }
+    
+    .institution-link:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+    
+    .institution-tooltip {
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #112240;
+        color: #CCD6F6;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(87, 223, 194, 0.3);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        pointer-events: none;
+        z-index: 100;
+    }
+    
+    .institution-tooltip::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #112240 transparent transparent transparent;
+    }
+    
+    .institution-link:hover .institution-tooltip {
+        opacity: 1;
+        visibility: visible;
+        top: -40px;
+    }
+    
+    .unlp-link:hover {
+        color: #57DFC2;
+    }
+    
+    .meli-link:hover {
+        color: #57DFC2;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Simplified typing effect for the name - types once and stops
+        const nameElement = document.querySelector('.typing-effect');
+        const originalName = nameElement.textContent;
+        nameElement.textContent = '';
+        nameElement.style.borderRight = '0.15em solid #57DFC2';
+        
+        let nameIndex = 0;
+        let typingDelay = 150;
+        
+        function typeEffect() {
+            // Current text
+            const currentText = originalName.substring(0, nameIndex);
+            nameElement.textContent = currentText;
+            
+            // Add character
+            nameIndex++;
+            
+            // If completed typing, stop the animation
+            if (nameIndex <= originalName.length) {
+                setTimeout(typeEffect, typingDelay);
+            }
+        }
+        
+        // Start the typing effect
+        setTimeout(typeEffect, 1000);
+        
+        // Smooth scroll for the arrow
+        document.querySelector('.scroll-indicator').addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                // Get navbar height to use as offset
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                
+                window.scrollTo({
+                    top: targetPosition - navbarHeight - 20, // Extra 20px for spacing
+                    behavior: 'smooth'
+                });
+            }
+        });
+        
+        // Add section appearance animation
+        const sections = document.querySelectorAll('#about-me, #portfolio, #certificates, #other-projects, #contact');
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        sections.forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(section);
+        });
+    });
+</script>
 {% endblock %}
