@@ -2,82 +2,686 @@
 {% load static %}
 
 {% block content %}
-<div style="margin-top: 5rem;">
+<div class="storytelling-container">
+    <div class="project-header">
     <div class="col-md-8 my-5 text-start">
-        <h1 class="display-2 fw-bolder" style="color: #CCD6F6;">Storytelling AI</h1>
+            <h1 class="display-2 fw-bolder storytelling-title" style="color: #CCD6F6;">Storytelling AI</h1>
+            <div class="subtitle-container">
+                <span class="subtitle-line"></span>
+                <h5 class="fw-light main-text-color">Transforming plain text into immersive multilingual videos</h5>
+            </div>
+        </div>
     </div>
-    <div class="col-md-12 mb-4 text-center">
-        <img class="border border-success border-2 rounded rounded-3 border-opacity-50 mx-auto" style="max-width: 65%;" src="https://storage.googleapis.com/projects_portfolio_website_thumbnails/storytelling-ai.png" alt="Storytelling AI Thumbnail"/>
+    
+    <div class="hero-image-container">
+        <div class="hero-overlay">
+            <div class="play-button-container">
+                <a href="#demo-video" class="play-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                        <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                    </svg>
+                    <span>Watch Demo</span>
+                </a>
+            </div>
+        </div>
+        <img class="hero-image" src="https://storage.googleapis.com/projects_portfolio_website_thumbnails/storytelling-ai.png" alt="Storytelling AI Thumbnail"/>
     </div>
-    <div class="col-md-8 mt-5 mb-3 text-start">
+    
+    <div class="project-section">
+        <div class="section-header">
         <h2 class="fw-bolder" style="color: #CCD6F6;">Behind Storytelling AI</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="section-content">
+            <p class="fw-light" style="color: #CCD6F6; line-height: 1.7;">
+                Storytelling AI is a bridge between languages, cultures, and stories. Born from the desire to connect diverse communities and break down language barriers, this project aims to bring writers from around the globe to Spanish-speaking audiences.
+            </p>
+            <p class="fw-light" style="color: #CCD6F6; line-height: 1.7;">
+                By seamlessly translating stories from any language into Spanish and crafting captivating narrated videos, I celebrate the diversity of human expression and ensure that every story has the opportunity to be shared and appreciated, regardless of its origin.
+            </p>
     </div>
-    <h5 class="fw-light" style="color: #CCD6F6; line-height: 1.5;">Storytelling AI is a bridge between languages, cultures, and stories. Born from the desire to connect diverse communities and break down language barriers, this project aims to bring writers from around the globe to Spanish-speaking audiences. By seamlessly translating stories from any language into Spanish and crafting captivating narrated videos. I celebrate the diversity of human expression and ensure that every story has the opportunity to be shared and appreciated, regardless of its origin.</h5>
-    <div class="col-md-8 mt-5 mb-3 text-start">
-        <h4 class="fw-bolder main-text-color">Teaser video coming soon...</h4>
-    </div>    
-    <div class="col-md-8 mt-5 mb-3 text-start">
-        <h2 class="fw-bolder" style="color: #CCD6F6;">Demo video</h2>
     </div>
-    <h5 class="fw-light mb-4" style="color: #CCD6F6; line-height: 1.5;">Video demonstration of the app's output when encountering an entry from a Thriller genre story:</h5>
+    
+    <div id="demo-video" class="project-section">
+        <div class="section-header">
+            <h2 class="fw-bolder" style="color: #CCD6F6;">Demo Video</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="section-content">
+            <p class="fw-light mb-4" style="color: #CCD6F6; line-height: 1.7;">
+                Video demonstration of the app's output when encountering an entry from a Thriller genre story:
+            </p>
+            <div class="video-container">
     <div class="ratio ratio-16x9">
-        <iframe src="https://www.youtube.com/watch?v=BK9EpnU3oG8" title="YouTube video" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/BK9EpnU3oG8" title="YouTube video" allowfullscreen></iframe>
     </div>
-    <div class="col-md-8 mt-5 mb-3 text-start">
-        <h2 class="fw-bolder" style="color: #CCD6F6;">Gallery</h2>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <img
-                    src="https://storage.googleapis.com/portfolio_static_content/stai-gallery/audio%20correction%20stai.png"
-                    class="w-100 shadow-1-strong rounded border border-success border-2 rounded-3 border-opacity-50 mb-4"
-                    alt="Audio Correction STAI"
-                />
-            </div>
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <img
-                    src="https://storage.googleapis.com/portfolio_static_content/stai-gallery/story%20details%20stai.png"
-                    class="w-100 shadow-1-strong rounded border border-success border-2 rounded-3 border-opacity-50 mb-4"
-                    alt="Story Details STAI"
-                />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <img
-                    src="https://storage.googleapis.com/portfolio_static_content/stai-gallery/suspense%20stai.png"
-                    class="w-100 shadow-1-strong rounded border border-success border-2 rounded-3 border-opacity-50 mb-4"
-                    alt="Suspense STAI"
-                />
-            </div>
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <img
-                    src="https://storage.googleapis.com/portfolio_static_content/stai-gallery/audios%20stai.png"
-                    class="w-100 shadow-1-strong rounded border border-success border-2 rounded-3 border-opacity-50 mb-4"
-                    alt="Audios STAI"
-                    style="max-width: 465px;"
-                />
             </div>
         </div>
     </div>
     
+    <div class="project-section">
+        <div class="section-header">
+            <h2 class="fw-bolder" style="color: #CCD6F6;">Gallery</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="section-content">
+            <div class="gallery-container">
+                <div class="gallery-item" data-image="https://storage.googleapis.com/portfolio_static_content/stai-gallery/audio%20correction%20stai.png" data-title="Audio Correction Interface">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Audio Correction Interface</div>
+                        <div class="gallery-description">Fine-tune generated audio for perfect narration</div>
+                    </div>
+                    <img src="https://storage.googleapis.com/portfolio_static_content/stai-gallery/audio%20correction%20stai.png" alt="Audio Correction STAI" />
+                </div>
+                <div class="gallery-item" data-image="https://storage.googleapis.com/portfolio_static_content/stai-gallery/story%20details%20stai.png" data-title="Story Details Panel">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Story Details Panel</div>
+                        <div class="gallery-description">View and edit story metadata and settings</div>
+                    </div>
+                    <img src="https://storage.googleapis.com/portfolio_static_content/stai-gallery/story%20details%20stai.png" alt="Story Details STAI" />
+                </div>
+                <div class="gallery-item" data-image="https://storage.googleapis.com/portfolio_static_content/stai-gallery/suspense%20stai.png" data-title="Suspense Analysis">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Suspense Analysis</div>
+                        <div class="gallery-description">AI-powered sentence-level suspense detection</div>
+                    </div>
+                    <img src="https://storage.googleapis.com/portfolio_static_content/stai-gallery/suspense%20stai.png" alt="Suspense STAI" />
+                </div>
+                <div class="gallery-item" data-image="https://storage.googleapis.com/portfolio_static_content/stai-gallery/audios%20stai.png" data-title="Audio Management">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Audio Management</div>
+                        <div class="gallery-description">Organize and preview generated audio segments</div>
+                    </div>
+                    <img src="https://storage.googleapis.com/portfolio_static_content/stai-gallery/audios%20stai.png" alt="Audios STAI" />
+            </div>
+            </div>
+        </div>
+    </div>
     
+    <div class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-close">×</div>
+            <img class="modal-image" src="" alt="Gallery image full size" />
+            <div class="modal-title"></div>
+        </div>
+    </div>
     
-    <div class="col-md-8 mt-5 mb-3 text-start">
+    <div class="project-section">
+        <div class="section-header">
         <h2 class="fw-bolder" style="color: #CCD6F6;">Multilingual Narrative Storytelling</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="section-content">
+            <p class="fw-light" style="color: #CCD6F6; line-height: 1.7;">
+                Storytelling AI is for now a locally-operating web app that utilizes AI technologies such as 
+                <span class="tech-tag">OpenAI GPT-4</span>, 
+                <span class="tech-tag">Whisper</span>, 
+                <span class="tech-tag">Google Cloud Translation API</span>, 
+                <span class="tech-tag">XTTS</span>, 
+                <span class="tech-tag">Stable diffusion XL</span>, and 
+                <span class="tech-tag">Mistral 7B</span>.
+            </p>
+            <p class="fw-light" style="color: #CCD6F6; line-height: 1.7;">
+                It translates any language story into Spanish, generating narrated videos with music, sound effects, images, and automated summaries. The app also performs sentence-level suspense analysis using 
+                <span class="tech-tag">SpaCy</span>. Developed with 
+                <span class="tech-tag">Streamlit</span>, 
+                <span class="tech-tag">Python</span> and 
+                <span class="tech-tag">JSX</span>.
+            </p>
+        </div>
     </div>
-    <h5 class="fw-light mb-4" style="color: #CCD6F6; line-height: 1.5;">Storytelling AI is for now a locally-operating web app that utilizes AI technologies such as <span class="main-text-color">OpenAI GPT-4</span>, <span class="main-text-color">Whisper</span>, <span class="main-text-color">Google Cloud Translation API</span>, <span class="main-text-color">XTTS</span>, <span class="main-text-color">Stable diffusion XL</span>, and <span class="main-text-color">Mistral 7B</span>.</h5>    
-    <h5 class="fw-light" style="color: #CCD6F6; line-height: 1.5;">It translates any language story into Spanish, generating narrated videos with music, sound effects, images, and automated summaries. The app also performs sentence-level suspense analysis using <span class="main-text-color">SpaCy</span>. Developed with <span class="main-text-color">Streamlit</span>, <span class="main-text-color">Python</span> and <span class="main-text-color">JSX</span>.</h5>    
-    <div class="col-md-8 mt-5 mb-3 text-start">
+    
+    <div class="project-section">
+        <div class="section-header">
         <h2 class="fw-bolder" style="color: #CCD6F6;">Architecture</h2>        
+            <div class="section-line"></div>
+        </div>
+        <div class="section-content">
+            <div class="architecture-container">
+                <img class="architecture-image" src="https://storage.googleapis.com/portfolio_static_content/AI-Storyteller-architecture.jpg" alt="Storytelling AI Architecture"/>
+                <div class="architecture-overlay">
+                    <div class="architecture-details">
+                        <h4>Technical Overview</h4>
+                        <p>Click to explore the system architecture</p>
+                    </div>
+                </div>
+            </div>
+            <div class="architecture-description">
+                <p class="fw-light" style="color: #CCD6F6; line-height: 1.7;">
+                    The architecture of this web application involves receiving the story text through a 
+                    <span class="tech-tag">Streamlit</span> web interface developed in 
+                    <span class="tech-tag">Python</span>. The text is translated from any language to Spanish using the Google 
+                    <span class="tech-tag">Cloud Translation API</span>. Then, the translated text undergoes automated narration using 
+                    <span class="tech-tag">OpenAI GPT-4</span> and 
+                    <span class="tech-tag">XTTS</span> models, enriched with images from 
+                    <span class="tech-tag">Stable Diffusion XL</span>.
+                </p>
+                <p class="fw-light" style="color: #CCD6F6; line-height: 1.7;">
+                    The 
+                    <span class="tech-tag">Mistral 7B</span> model alongside 
+                    <span class="tech-tag">SpaCy</span> are used for natural language processing (
+                    <span class="tech-tag">NLP</span>) to dynamically place sound effects in the narration. Finally, the generated elements are combined into a video with music using 
+                    <span class="tech-tag">After Effects Scripting</span>, providing users with a seamless and immersive storytelling experience.
+                </p>
+                <p class="fw-light" style="color: #CCD6F6; line-height: 1.7;">
+                    The project's source code is currently not available to the public. I'm working on improving it by restructuring, adding comments, and documenting it, after which it will be made accessible to everyone.
+                </p>
+            </div>
+        </div>
     </div>
-    <div class="col-md-12 mb-4 text-center">
-        <img class="border border-success border-2 rounded rounded-3 border-opacity-50 mx-auto" style="max-width: 65%;" src="https://storage.googleapis.com/portfolio_static_content/AI-Storyteller-architecture.jpg" alt="Storytelling AI Architecture"/>
+    
+    <div class="project-section">
+        <div class="section-header">
+            <h2 class="fw-bolder" style="color: #CCD6F6;">Project Journey</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="section-content">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>Concept Development</h4>
+                        <p>Identified the need for cross-language storytelling tools and began researching AI translation capabilities</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>Prototype Creation</h4>
+                        <p>Built initial text-to-speech pipeline with basic translation functionality</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>AI Integration</h4>
+                        <p>Incorporated advanced AI models for improved translation, narration, and image generation</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>UI Development</h4>
+                        <p>Created intuitive interface for story input, editing, and output generation</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>Current Status</h4>
+                        <p>Functional local application with ongoing improvements and documentation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>    
-    <h5 class="fw-light mb-4" style="color: #CCD6F6; line-height: 1.5;">The architecture of this web application involves receiving the story text through a <span class="main-text-color">Streamlit</span> web interface developed in <span class="main-text-color">Python</span>. The text is translated from any language to Spanish using the Google <span class="main-text-color">Cloud Translation API</span>. Then, the translated text undergoes automated narration using <span class="main-text-color">OpenAI GPT-4</span> and <span class="main-text-color">XTTS</span> models, enriched with images from <span class="main-text-color">Stable Diffusion XL</span>.</h5>
-    <h5 class="fw-light mb-4" style="color: #CCD6F6; line-height: 1.5;">The <span class="main-text-color">Mistral 7B</span> model alongside <span class="main-text-color">SpaCy</span> are used for natural language processing (<span class="main-text-color">NLP</span>) to dynamically place sound effects in the narration. Finally, the generated elements are combined into a video with music using <span class="main-text-color">After Effects Scripting</span>, providing users with a seamless and immersive storytelling experience.</h5>
-    <h5 class="fw-light" style="color: #CCD6F6; line-height: 1.5;">The project's source code is currently not available to the public. I'm working on improving it by restructuring, adding comments, and documenting it, after which it will be made accessible to everyone.</h5>
 </div>
-<br><br>
+
+<style>
+    .storytelling-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        margin-top: 5rem;
+    }
+    
+    .project-header {
+        margin-bottom: 2rem;
+    }
+    
+    .storytelling-title {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .subtitle-container {
+        display: flex;
+        align-items: center;
+        margin-top: 1rem;
+    }
+    
+    .subtitle-line {
+        width: 50px;
+        height: 1px;
+        background-color: #57DFC2;
+        margin-right: 15px;
+    }
+    
+    .hero-image-container {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 4rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border: 2px solid rgba(87, 223, 194, 0.3);
+    }
+    
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(17, 33, 64, 0.4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .hero-image-container:hover .hero-overlay {
+        opacity: 1;
+    }
+    
+    .hero-image {
+        width: 100%;
+        display: block;
+        transition: transform 0.5s ease;
+    }
+    
+    .hero-image-container:hover .hero-image {
+        transform: scale(1.05);
+    }
+    
+    .play-button-container {
+        z-index: 2;
+    }
+    
+    .play-button {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background-color: rgba(87, 223, 194, 0.9);
+        color: #0A192F;
+        padding: 12px 24px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .play-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 7px 20px rgba(0, 0, 0, 0.4);
+        background-color: #57DFC2;
+    }
+    
+    .project-section {
+        margin-bottom: 5rem;
+    }
+    
+    .section-header {
+        margin-bottom: 2rem;
+        position: relative;
+    }
+    
+    .section-line {
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(to right, #57DFC2, transparent);
+        margin-top: 10px;
+    }
+    
+    .section-content {
+        color: #8892B0;
+    }
+    
+    .video-container {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(87, 223, 194, 0.2);
+    }
+    
+    .gallery-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 2rem;
+    }
+    
+    .gallery-item {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        height: 200px;
+        border: 1px solid rgba(87, 223, 194, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .gallery-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+    
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover img {
+        transform: scale(1.1);
+    }
+    
+    .gallery-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(10, 25, 47, 0.9), transparent);
+        padding: 15px;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .gallery-item:hover .gallery-overlay {
+        transform: translateY(0);
+    }
+    
+    .gallery-title {
+        color: #CCD6F6;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+    
+    .gallery-description {
+        color: #8892B0;
+        font-size: 14px;
+    }
+    
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(10, 25, 47, 0.95);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+    
+    .modal-overlay.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+    
+    .modal-container {
+        position: relative;
+        max-width: 90%;
+        max-height: 90%;
+    }
+    
+    .modal-close {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        color: #CCD6F6;
+        font-size: 30px;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+    
+    .modal-close:hover {
+        color: #57DFC2;
+    }
+    
+    .modal-image {
+        max-width: 100%;
+        max-height: 80vh;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    .modal-title {
+        color: #CCD6F6;
+        text-align: center;
+        margin-top: 15px;
+        font-size: 18px;
+    }
+    
+    .tech-tag {
+        display: inline-block;
+        background-color: rgba(87, 223, 194, 0.1);
+        color: #57DFC2;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 14px;
+        margin: 0 2px;
+        transition: all 0.2s ease;
+    }
+    
+    .tech-tag:hover {
+        background-color: rgba(87, 223, 194, 0.2);
+        transform: translateY(-2px);
+    }
+    
+    .architecture-container {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(87, 223, 194, 0.2);
+        cursor: pointer;
+    }
+    
+    .architecture-image {
+        width: 100%;
+        display: block;
+        transition: transform 0.5s ease;
+    }
+    
+    .architecture-container:hover .architecture-image {
+        transform: scale(1.05);
+    }
+    
+    .architecture-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(17, 33, 64, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .architecture-container:hover .architecture-overlay {
+        opacity: 1;
+    }
+    
+    .architecture-details {
+        text-align: center;
+        color: #CCD6F6;
+        padding: 20px;
+    }
+    
+    .architecture-details h4 {
+        color: #57DFC2;
+        margin-bottom: 10px;
+    }
+    
+    .timeline {
+        position: relative;
+        margin: 40px 0;
+    }
+    
+    .timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 15px;
+        width: 2px;
+        background: linear-gradient(to bottom, #57DFC2, rgba(87, 223, 194, 0.1));
+    }
+    
+    .timeline-item {
+        position: relative;
+        padding-left: 40px;
+        margin-bottom: 30px;
+    }
+    
+    .timeline-dot {
+        position: absolute;
+        left: 9px;
+        top: 5px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background-color: #57DFC2;
+        box-shadow: 0 0 0 4px rgba(87, 223, 194, 0.2);
+    }
+    
+    .timeline-content {
+        background-color: rgba(17, 33, 64, 0.7);
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        border-left: 3px solid #57DFC2;
+        transition: transform 0.3s ease;
+    }
+    
+    .timeline-content:hover {
+        transform: translateX(5px);
+    }
+    
+    .timeline-content h4 {
+        color: #CCD6F6;
+        margin-bottom: 10px;
+    }
+    
+    .timeline-content p {
+        color: #8892B0;
+        margin-bottom: 0;
+    }
+    
+    @media (max-width: 768px) {
+        .gallery-container {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+        
+        .hero-image-container {
+            margin-bottom: 3rem;
+        }
+        
+        .project-section {
+            margin-bottom: 4rem;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .gallery-container {
+            grid-template-columns: 1fr;
+        }
+        
+        .timeline-content {
+            padding: 15px;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Gallery modal functionality
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const modalOverlay = document.querySelector('.modal-overlay');
+        const modalImage = document.querySelector('.modal-image');
+        const modalTitle = document.querySelector('.modal-title');
+        const modalClose = document.querySelector('.modal-close');
+        
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const imageSrc = this.getAttribute('data-image');
+                const imageTitle = this.getAttribute('data-title');
+                
+                modalImage.src = imageSrc;
+                modalTitle.textContent = imageTitle;
+                modalOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        modalClose.addEventListener('click', function() {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Architecture image modal
+        const architectureContainer = document.querySelector('.architecture-container');
+        
+        architectureContainer.addEventListener('click', function() {
+            const imageSrc = this.querySelector('img').src;
+            
+            modalImage.src = imageSrc;
+            modalTitle.textContent = 'Storytelling AI System Architecture';
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        // Smooth scroll for demo video link
+        document.querySelector('.play-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                
+                window.scrollTo({
+                    top: targetPosition - navbarHeight - 20,
+                    behavior: 'smooth'
+                });
+            }
+        });
+        
+        // Animate sections on scroll
+        const sections = document.querySelectorAll('.project-section');
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        sections.forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    });
+</script>
 {% endblock %}

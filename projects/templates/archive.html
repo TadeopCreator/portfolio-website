@@ -2,54 +2,61 @@
 {% load static %}
 
 {% block content %}
+<div class="archive-container">
 <div class="row my-3" style="margin-top: 5rem;">
     <div class="col-md-10 my-5 text-start">
         <h1 class="display-2 fw-bolder" style="color: #CCD6F6;">Archive</h1>
-        <h5 class="fw-light main-text-color">A big list of things I’ve worked on</h5>
+            <h5 class="fw-light main-text-color">A big list of things I've worked on</h5>
+            
+            <div class="archive-filters mt-4">
+                <div class="filter-label">Filter by:</div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="github">GitHub</button>
+                    <button class="filter-btn" data-filter="medium">Medium</button>
+                    <button class="filter-btn" data-filter="other">Other</button>
     </div>
-    <div class="row mx-auto p-2 align-items-center justify-content-start">
-        <div class="col-md-1 d-none d-md-block">
-            <p class="navbar-text fw-semibold">Year</p>
         </div>
-        <div class="col-md-5 d-none d-md-block">
-            <p class="navbar-text fw-semibold">Title</p>
         </div>
-        <div class="col-md-5 d-none d-md-block">
-            <p class="fw-light navbar-text fw-semibold">Built with</p>
+        
+        <div class="archive-table">
+            <div class="archive-header">
+                <div class="archive-year">Year</div>
+                <div class="archive-title">Title</div>
+                <div class="archive-tech">Built with</div>
+                <div class="archive-link">Link</div>
         </div>
-        <div class="col-md-1 d-none d-md-block">
-            <p class="fw-light text-end navbar-text fw-semibold">Link</p>
-        </div>
-    </div>
+            
+            <div class="archive-body">
     {% for project in projects %}
-    <div onclick="location.href='{{project.url}}';" style="cursor: pointer;" class="row list-e mx-auto p-2 align-items-center justify-content-start mt-2">
-        <div class="col-md-1">
-            <p class="main-text-color pt-2">{{project.year}}</p>        
+                <div class="archive-row" data-origin="{{project.origin|default:''}}">
+                    <div class="archive-year">
+                        <span class="year-text">{{project.year}}</span>
         </div>
-        <div class="col-md-5">
-            <h5 style="color: #CCD6F6;">{{project.title}}</h5>
+                    <div class="archive-title">
+                        <h5 class="project-name">{{project.title}}</h5>
         </div>
-        <div class="col-md-5">
-            <div class="mx-3 mt-1">
+                    <div class="archive-tech">
+                        <div class="project-tags">
                 {% for tag in project.tags %}
-                    <span class="badge rounded-pill text-bg-secondary">{{ tag }}</span>
+                                <span class="project-tag">{{ tag }}</span>
                 {% endfor %}
             </div>
         </div>
-        <div class="col-md-1 text-end">
-            <a href="{{ project.url }}" target="_blank">                
+                    <div class="archive-link">
+                        <a href="{{ project.url }}" target="_blank" class="project-link">                
                 {% if project.origin == 'github' or project.origin == '' %}
-                    <svg class="footer-button navbar-text" xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
                         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
                     </svg>
                 {% endif %}
                 {% if project.origin == 'medium' %}
-                    <svg class="footer-button navbar-text" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-medium" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-medium" viewBox="0 0 16 16">
                         <path d="M9.025 8c0 2.485-2.02 4.5-4.513 4.5A4.506 4.506 0 0 1 0 8c0-2.486 2.02-4.5 4.512-4.5A4.506 4.506 0 0 1 9.025 8zm4.95 0c0 2.34-1.01 4.236-2.256 4.236-1.246 0-2.256-1.897-2.256-4.236 0-2.34 1.01-4.236 2.256-4.236 1.246 0 2.256 1.897 2.256 4.236zM16 8c0 2.096-.355 3.795-.794 3.795-.438 0-.793-1.7-.793-3.795 0-2.096.355-3.795.794-3.795.438 0 .793 1.699.793 3.795z"/>
                     </svg>
                 {% endif %}
                 {% if project.origin == 'other' %}
-                    <svg class="footer-button navbar-text" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
                         <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
                     </svg>
@@ -59,5 +66,327 @@
     </div>
     {% endfor %}
 </div>
-<br><br>
+        </div>
+        
+        <div class="no-results-message" style="display: none;">
+            <p>No projects match your filter criteria. Try another filter!</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .archive-container {
+        padding: 0 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        min-height: 80vh;
+    }
+    
+    .archive-filters {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .filter-label {
+        color: #8892B0;
+        font-family: monospace;
+        font-size: 16px;
+    }
+    
+    .filter-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .filter-btn {
+        background-color: transparent;
+        color: #8892B0;
+        border: 1px solid rgba(87, 223, 194, 0.3);
+        border-radius: 4px;
+        padding: 5px 15px;
+        font-family: monospace;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    
+    .filter-btn:hover, .filter-btn.active {
+        background-color: rgba(87, 223, 194, 0.1);
+        color: #57DFC2;
+        transform: translateY(-2px);
+    }
+    
+    .archive-table {
+        width: 100%;
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: rgba(17, 33, 64, 0.3);
+        backdrop-filter: blur(5px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        margin-bottom: 50px;
+    }
+    
+    .archive-header {
+        display: grid;
+        grid-template-columns: 0.5fr 2fr 2fr 0.5fr;
+        padding: 15px 20px;
+        background-color: rgba(17, 33, 64, 0.7);
+        color: #CCD6F6;
+        font-weight: 600;
+        border-bottom: 1px solid rgba(87, 223, 194, 0.2);
+    }
+    
+    .archive-row {
+        display: grid;
+        grid-template-columns: 0.5fr 2fr 2fr 0.5fr;
+        padding: 20px;
+        border-bottom: 1px solid rgba(87, 223, 194, 0.1);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        align-items: center;
+    }
+    
+    .archive-row:hover {
+        background-color: rgba(17, 33, 64, 0.7);
+        transform: translateX(5px);
+    }
+    
+    .archive-row:last-child {
+        border-bottom: none;
+    }
+    
+    .year-text {
+        color: #57DFC2;
+        font-family: monospace;
+        font-weight: 500;
+    }
+    
+    .project-name {
+        color: #CCD6F6;
+        margin: 0;
+        transition: color 0.3s ease;
+    }
+    
+    .archive-row:hover .project-name {
+        color: #57DFC2;
+    }
+    
+    .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .project-tag {
+        background-color: #1E3A5F;
+        color: #8892B0;
+        font-family: monospace;
+        font-size: 11px;
+        padding: 3px 8px;
+        border-radius: 12px;
+        transition: all 0.2s ease;
+        display: inline-block;
+    }
+    
+    .archive-row:hover .project-tag {
+        background-color: rgba(87, 223, 194, 0.2);
+        color: #57DFC2;
+    }
+    
+    .project-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background-color: rgba(17, 33, 64, 0.7);
+        border-radius: 8px;
+        padding: 7px;
+        border: 1px solid rgba(87, 223, 194, 0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .project-link svg {
+        color: #8892B0;
+        transition: color 0.2s ease;
+    }
+    
+    .project-link:hover {
+        background-color: rgba(87, 223, 194, 0.1);
+        transform: translateY(-3px);
+    }
+    
+    .project-link:hover svg {
+        color: #57DFC2;
+    }
+    
+    .no-results-message {
+        text-align: center;
+        color: #8892B0;
+        font-size: 18px;
+        margin: 50px 0;
+        font-style: italic;
+    }
+    
+    /* Animation for rows */
+    @keyframes fadeInRight {
+        from {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    .archive-row {
+        animation: fadeInRight 0.5s ease forwards;
+        opacity: 0;
+    }
+    
+    .archive-row:nth-child(1) { animation-delay: 0.1s; }
+    .archive-row:nth-child(2) { animation-delay: 0.15s; }
+    .archive-row:nth-child(3) { animation-delay: 0.2s; }
+    .archive-row:nth-child(4) { animation-delay: 0.25s; }
+    .archive-row:nth-child(5) { animation-delay: 0.3s; }
+    .archive-row:nth-child(6) { animation-delay: 0.35s; }
+    .archive-row:nth-child(7) { animation-delay: 0.4s; }
+    .archive-row:nth-child(8) { animation-delay: 0.45s; }
+    .archive-row:nth-child(9) { animation-delay: 0.5s; }
+    .archive-row:nth-child(10) { animation-delay: 0.55s; }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .archive-header {
+            grid-template-columns: 0.5fr 1.5fr 1.5fr 0.5fr;
+            font-size: 14px;
+        }
+        
+        .archive-row {
+            grid-template-columns: 0.5fr 1.5fr 1.5fr 0.5fr;
+            padding: 15px 10px;
+        }
+        
+        .project-tag {
+            font-size: 10px;
+            padding: 2px 6px;
+        }
+        
+        .project-name {
+            font-size: 16px;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .archive-header {
+            display: none;
+        }
+        
+        .archive-row {
+            grid-template-columns: 0.5fr 1.5fr 1fr 0.5fr;
+            padding: 15px 10px;
+        }
+        
+        .project-tags {
+            flex-direction: column;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Make entire row clickable
+        const archiveRows = document.querySelectorAll('.archive-row');
+        archiveRows.forEach(row => {
+            row.addEventListener('click', function(e) {
+                // Don't trigger if clicking on the link itself
+                if (!e.target.closest('.project-link')) {
+                    const link = this.querySelector('.project-link');
+                    if (link) {
+                        window.open(link.getAttribute('href'), '_blank');
+                    }
+                }
+            });
+        });
+        
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const rows = document.querySelectorAll('.archive-row');
+        const noResultsMessage = document.querySelector('.no-results-message');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                let visibleCount = 0;
+                
+                rows.forEach(row => {
+                    const origin = row.getAttribute('data-origin') || '';
+                    
+                    // Fix for GitHub filter - handle both empty and 'github' values
+                    if (filter === 'all' || 
+                        (filter === 'github' && (origin === 'github' || origin === '')) || 
+                        (filter !== 'github' && origin === filter)) {
+                        row.style.display = 'grid';
+                        visibleCount++;
+                        
+                        // Reset and restart animation
+                        row.style.animation = 'none';
+                        row.offsetHeight; // Trigger reflow
+                        row.style.animation = null;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+                
+                // Show/hide no results message
+                if (visibleCount === 0) {
+                    noResultsMessage.style.display = 'block';
+                } else {
+                    noResultsMessage.style.display = 'none';
+                }
+            });
+        });
+        
+        // Add hover effect to tags
+        const projectTags = document.querySelectorAll('.project-tag');
+        projectTags.forEach(tag => {
+            tag.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = 'rgba(87, 223, 194, 0.2)';
+                this.style.color = '#57DFC2';
+            });
+            
+            tag.addEventListener('mouseleave', function() {
+                if (!this.closest('.archive-row:hover')) {
+                    this.style.backgroundColor = '#1E3A5F';
+                    this.style.color = '#8892B0';
+                }
+            });
+        });
+        
+        // Add typing effect to title
+        const title = document.querySelector('.display-2');
+        const originalText = title.textContent;
+        title.textContent = '';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < originalText.length) {
+                title.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        };
+        
+        setTimeout(typeWriter, 500);
+    });
+</script>
 {% endblock %}
