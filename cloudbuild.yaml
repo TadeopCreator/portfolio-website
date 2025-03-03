@@ -18,7 +18,7 @@ steps:
     args: [
       'run', 'deploy', 'portfolio-website',
       '--image', 'gcr.io/$PROJECT_ID/portfolio-website:$COMMIT_SHA',
-      '--region', 'us-central1',
+      '--region', 'southamerica-east1',
       '--platform', 'managed',
       '--allow-unauthenticated'
     ]
@@ -28,4 +28,8 @@ images:
   - 'gcr.io/$PROJECT_ID/portfolio-website:$COMMIT_SHA'
 
 # Optional timeout setting (default is 10 minutes)
-timeout: '1800s' 
+timeout: '1800s'
+
+# Logging configuration
+options:
+  logging: CLOUD_LOGGING_ONLY 
