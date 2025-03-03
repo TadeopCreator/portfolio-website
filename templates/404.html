@@ -1,10 +1,273 @@
 {% extends 'layout.html' %}
 {% block content %}
-<div class="text-ceter justify-content-center d-flex" style="color: #CCD6F6;">
-    <h3>The page you are looking for does not exist!</h3>    
+<div class="error-page-container">
+    <div class="error-content">
+        <div class="error-code">
+            <span>4</span>
+            <div class="zero-container">
+                <div class="zero-outer"></div>
+                <div class="zero-inner"></div>
+            </div>
+            <span>4</span>
+        </div>
+        
+        <h2 class="error-title">Page Not Founds</h2>
+        
+        <div class="error-message">
+            <p>The page you're looking for has been moved, deleted, or possibly never existed.</p>
+            <p class="terminal-text">
+                <span class="terminal-prompt">$</span> 
+                <span class="typing-text">cd /home/tadeo/portfolio</span>
+            </p>
+        </div>
+        
+        <div class="home-button-container">
+            <a href="/" class="home-button">
+                <span class="button-text">Return to $HOME</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                    <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
 </div>
-<br>
-<div class="text-ceter justify-content-center d-flex">
-    <a type="button" href="/" class="btn btn-outline-success px-5 py-2 main-text-color bg-main-color">Return to Home</a>    
-</div>
+
+<style>
+    .error-page-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+        padding: 0 20px;
+    }
+    
+    .error-content {
+        text-align: center;
+        max-width: 600px;
+        animation: fadeIn 0.8s ease-out forwards;
+    }
+    
+    .error-code {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 120px;
+        font-weight: 700;
+        color: #CCD6F6;
+        margin-bottom: 20px;
+        font-family: monospace;
+    }
+    
+    .zero-container {
+        position: relative;
+        width: 100px;
+        height: 120px;
+        margin: 0 10px;
+    }
+    
+    .zero-outer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 8px solid #57DFC2;
+        border-radius: 50%;
+        animation: rotate 10s linear infinite;
+    }
+    
+    .zero-inner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 40%;
+        height: 40%;
+        background-color: rgba(17, 33, 64, 0.7);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .error-title {
+        color: #57DFC2;
+        font-size: 32px;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+    
+    .error-message {
+        color: #8892B0;
+        font-size: 18px;
+        margin-bottom: 40px;
+        line-height: 1.6;
+    }
+    
+    .terminal-text {
+        font-family: monospace;
+        background-color: rgba(17, 33, 64, 0.7);
+        padding: 15px;
+        border-radius: 5px;
+        text-align: left;
+        margin-top: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        display: inline-block;
+        min-width: 300px;
+        line-height: 1;
+    }
+    
+    .terminal-prompt {
+        color: #57DFC2;
+        margin-right: 10px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    
+    .typing-text {
+        color: #CCD6F6;
+        border-right: 2px solid #57DFC2;
+        padding-right: 5px;
+        animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+        white-space: nowrap;
+        overflow: hidden;
+        display: inline-block;
+        max-width: 0;
+        max-width: 300px;
+        vertical-align: middle;
+    }
+    
+    .home-button-container {
+        margin-top: 30px;
+    }
+    
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background-color: transparent;
+        color: #57DFC2;
+        border: 1px solid #57DFC2;
+        border-radius: 4px;
+        padding: 12px 25px;
+        font-size: 16px;
+        font-family: monospace;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .home-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(87, 223, 194, 0.1);
+        transition: all 0.4s ease;
+    }
+    
+    .home-button:hover {
+        background-color: rgba(87, 223, 194, 0.1);
+        color: #57DFC2;
+        transform: translateY(-5px);
+        box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .home-button:hover::before {
+        left: 100%;
+    }
+    
+    .home-button:active {
+        transform: translateY(-2px);
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes typing {
+        from { max-width: 0 }
+        to { max-width: 300px }
+    }
+    
+    @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: #57DFC2 }
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 576px) {
+        .error-code {
+            font-size: 80px;
+        }
+        
+        .zero-container {
+            width: 70px;
+            height: 80px;
+        }
+        
+        .error-title {
+            font-size: 24px;
+        }
+        
+        .error-message {
+            font-size: 16px;
+        }
+        
+        .terminal-text {
+            min-width: 250px;
+            font-size: 14px;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add some random glitch effect to the 404 numbers
+        const errorDigits = document.querySelectorAll('.error-code span');
+        
+        function glitchEffect() {
+            errorDigits.forEach(digit => {
+                // Random chance to apply glitch
+                if (Math.random() > 0.9) {
+                    // Save original text
+                    const originalText = digit.textContent;
+                    
+                    // Apply glitch
+                    digit.style.transform = `translateX(${(Math.random() - 0.5) * 10}px)`;
+                    digit.style.opacity = Math.random() * 0.5 + 0.5;
+                    
+                    // Reset after short delay
+                    setTimeout(() => {
+                        digit.style.transform = 'translateX(0)';
+                        digit.style.opacity = 1;
+                    }, 100);
+                }
+            });
+            
+            // Continue the effect
+            setTimeout(glitchEffect, 2000 + Math.random() * 3000);
+        }
+        
+        // Start the glitch effect
+        setTimeout(glitchEffect, 2000);
+    });
+</script>
 {% endblock %}
