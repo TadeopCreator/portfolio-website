@@ -1,15 +1,273 @@
-{% load static %}
-<div class="row justify-content-center text-center" style="margin-top: 10rem; margin-bottom: 10rem;">
-    <div class="col-md-4 my-5">
-        <h6 class="fw-light main-text-color">What’s Next?</h6>
-        <h2 id="get-in-touch" class="display-5 fw-bolder" style="color: #CCD6F6;">Get In Touch</h2>
-    </div>
-    <div class="container w-10 text-center">
-        <div class="row justify-content-center">
-            <p class="col-md-4 fw-light light-blue-color">Feel free to get in touch with me via Gmail. I'm always open to new opportunities, collaborations, or just a friendly chat</p>
+<div class="contact-section" id="get-in-touch">
+    <div class="contact-content text-center">
+        <h6 class="contact-subtitle">What's Next?</h6>
+        <h2 class="contact-title">Get In Touch</h2>
+        <div class="contact-text-container">
+            <p class="contact-text">
+                Feel free to get in touch with me via Gmail. I'm always open to new opportunities, collaborations, or just a friendly chat about technology and software development.
+            </p>
+        </div>
+        <div class="contact-button-container">
+            <a href="mailto:tadeo.deluca2002@gmail.com" class="contact-button" target="_blank">
+                <span class="button-text">Say Hello</span>
+                <span class="button-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+                        <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
+                    </svg>
+                </span>
+            </a>
+        </div>
+        <div class="row text-center mb-5">
+            <div class="col-md-12 mt-5 mb-3">
+                <p class="fw-light" style="color: #8892B0; font-size: 0.9rem;">
+                    Thanks for visiting my portfolio!
+                </p>
+            </div>
         </div>
     </div>
-    <div class="my-4">
-        <a type="button" href="mailto:tadeo.deluca2002@gmail.com" class="btn btn-outline-success px-5 py-2 bg-main-color main-text-color" target="_blank">Say Hello</a>
-    </div>
 </div>
+
+<style>
+    .contact-section {
+        padding: 100px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 70vh;
+        position: relative;
+    }
+    
+    .contact-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1px;
+        height: 50px;
+        background: linear-gradient(to bottom, rgba(87, 223, 194, 0), rgba(87, 223, 194, 0.3));
+    }
+    
+    .contact-content {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .contact-subtitle {
+        font-family: monospace;
+        color: #57DFC2;
+        font-size: 16px;
+        margin-bottom: 10px;
+        font-weight: 400;
+    }
+    
+    .contact-title {
+        color: #CCD6F6;
+        font-size: 50px;
+        font-weight: 700;
+        margin-bottom: 30px;
+        position: relative;
+        display: inline-block;
+    }
+    
+    .contact-title::after {
+        content: '';
+        position: absolute;
+        width: 70px;
+        height: 4px;
+        background-color: rgba(87, 223, 194, 0.3);
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 2px;
+    }
+    
+    .contact-text-container {
+        margin: 30px auto;
+        max-width: 500px;
+    }
+    
+    .contact-text {
+        color: #8892B0;
+        font-size: 18px;
+        line-height: 1.6;
+        text-align: center;
+    }
+    
+    .contact-button-container {
+        margin-top: 40px;
+        text-align: center;
+    }
+    
+    .contact-button {
+        background-color: transparent;
+        color: #57DFC2;
+        border: 1px solid #57DFC2;
+        border-radius: 4px;
+        padding: 12px 28px;
+        font-family: monospace;
+        font-size: 16px;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+    }
+    
+    .contact-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(87, 223, 194, 0.1);
+        transition: all 0.4s ease;
+    }
+    
+    .contact-button:hover {
+        background-color: rgba(87, 223, 194, 0.1);
+        color: #57DFC2;
+        transform: translateY(-5px);
+        box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
+        text-decoration: none;
+    }
+    
+    .contact-button:hover::before {
+        left: 100%;
+    }
+    
+    .button-text {
+        position: relative;
+        z-index: 1;
+    }
+    
+    .button-icon {
+        margin-left: 10px;
+        position: relative;
+        z-index: 1;
+        transition: transform 0.3s ease;
+    }
+    
+    .contact-button:hover .button-icon {
+        transform: translateX(5px);
+    }
+    
+    @media (max-width: 768px) {
+        .contact-title {
+            font-size: 40px;
+        }
+        
+        .contact-text {
+            font-size: 16px;
+        }
+    }
+    
+    /* Animation for contact section */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .contact-section {
+        animation: fadeIn 0.8s ease-out forwards;
+    }
+    
+    .easter-egg-button {
+        display: inline-block;
+        color: #57DFC2;
+        cursor: pointer;
+        padding: 2px 8px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        font-family: monospace;
+    }
+    
+    .easter-egg-button:hover {
+        background-color: rgba(87, 223, 194, 0.1);
+        transform: translateY(-2px);
+    }
+    
+    .easter-egg-button:active {
+        transform: translateY(0);
+    }
+    
+    #clickCounter {
+        font-weight: bold;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Easter Egg Button Counter
+        const easterEggButton = document.getElementById('easterEggButton');
+        const clickCounter = document.getElementById('clickCounter');
+        let clickCount = 0;
+        
+        easterEggButton.addEventListener('click', function() {
+            clickCount++;
+            clickCounter.textContent = clickCount;
+            
+            // Add a small animation on click
+            this.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                this.style.transform = 'none';
+            }, 150);
+            
+            if (clickCount >= 10) {
+                // Reset counter
+                clickCount = 0;
+                clickCounter.textContent = clickCount;
+                
+                // Trigger the Easter Egg
+                triggerEasterEgg();
+            }
+        });
+        
+        // Function to trigger the Easter Egg (same as Konami code)
+        function triggerEasterEgg() {
+            // Create the confetti container if it doesn't exist
+            let confettiContainer = document.getElementById('confetti-container');
+            if (!confettiContainer) {
+                confettiContainer = document.createElement('div');
+                confettiContainer.id = 'confetti-container';
+                document.body.appendChild(confettiContainer);
+            }
+            
+            // Clear any existing confetti
+            confettiContainer.innerHTML = '';
+            
+            // Create confetti pieces
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDelay = Math.random() * 3 + 's';
+                confetti.style.backgroundColor = getRandomColor();
+                confettiContainer.appendChild(confetti);
+            }
+            
+            // Remove confetti after animation completes
+            setTimeout(() => {
+                confettiContainer.innerHTML = '';
+            }, 6000);
+        }
+        
+        // Helper function to get random colors for confetti
+        function getRandomColor() {
+            const colors = ['#57DFC2', '#CCD6F6', '#8892B0', '#64FFDA', '#0A192F'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+    });
+</script>

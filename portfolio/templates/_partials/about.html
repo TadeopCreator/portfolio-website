@@ -1,21 +1,221 @@
-{% load static %}
-<div class="row" style="margin-top: 20rem;">
-    <div class="col-md-12 my-5">
-        <h3 id="about-me" class="fw-bolder" style="color: #CCD6F6;">About Me</h3>
+<br class="d-none d-md-block">
+<br class="d-none d-md-block">
+<br class="d-none d-lg-block">
+<br class="d-none d-lg-block">
+<br class="d-none d-lg-block">
+<br class="d-none d-lg-block">
+<br class="d-none d-lg-block">
+<br class="d-none d-xl-block">
+
+<div class="row" id="about-me" style="margin-top: 6rem;">
+    <div class="col-md-12 my-2">
+        <h3 class="fw-bolder section-title">
+            About Me
+        </h3>
     </div>
     <div class="row">
         <div class="col-md-6">
-            <p class="fw-light light-blue-color">Hello! I'm Tadeo Deluca, a Computer Science student from Argentina. My passion lies in DevOps and Cloud Solutions, and I'm an avid enthusiast of Python and challenging projects. Currently, I'm focused on studying Kubernetes clusters and GitOps automation.
-            </p>
-            <p class="fw-light light-blue-color">Here are a few technologies I’ve been working with recently:</p>
-            <ul class="list-group">
-                <li class="list-group-item fw-light main-text-color" style="background-color: #040a13;">AWS</li>
-                <li class="list-group-item fw-light main-text-color" style="background-color: #040a13;">Kubernetes</li>
-                <li class="list-group-item fw-light main-text-color" style="background-color: #040a13;">Jenkins</li>
-            </ul>
-        </div>
-        <div class="col-md-4">
-            <img src="https://picsum.photos/250/250" class="rounded" alt="Profile Picture">
+            <p class="fw-light light-blue-color">I have hands-on experience building scalable systems at Mercado Libre using Java and Spring Boot, as well as working with multi-cloud solutions. I'm also a Google Cloud Associate Cloud Engineer, with a strong interest in exploring AI and data engineering to create impactful solutions.
+            </p>            
+            
+            <!-- Terminal-style section -->
+            <div class="terminal-section my-4 easter-egg" id="terminal-container">
+              <div id="terminal-content">
+                <span class="terminal-line" id="line1">cd ~/skills</span><span class="terminal-cursor"></span>
+                <br>
+                <span class="terminal-line" id="line2">ls -la</span>
+                <br>
+                <div id="ls-output" style="display: none;">
+                  <p class="mb-0">drwxr-xr-x  python</p>
+                  <p class="mb-0">drwxr-xr-x  java</p>
+                  <p class="mb-0">drwxr-xr-x  spring-boot</p>
+                  <p class="mb-0">drwxr-xr-x  docker</p>
+                  <p class="mb-0">drwxr-xr-x  google-cloud</p>
+                  <p class="mb-0">drwxr-xr-x  databases</p>
+                </div>
+                <br>
+                <span class="terminal-line" id="line3">cat passion.txt</span>
+                <br>
+                <p id="passion-output" style="display: none;">I love building software that makes a difference, playing with new technologies, and occasionally saving Princess Peach in my free time.</p>
+              </div>
+            </div>                    
+            <div class="mt-4 p-2 rounded" style="background-color: rgba(87, 223, 194, 0.1); border: 1px dashed #57DFC2;">
+                <p class="mb-0 main-text-color">
+                    <small>
+                        <i class="bi bi-lightbulb"></i> <strong>Easter Egg:</strong> Try the Konami Code! Press ↑↑↓↓←→←→BA on your keyboard 
+                        <span class="easter-egg-button" id="easterEggButton">or click me! (<span id="clickCounter">0</span>/10)</span>
+                    </small>
+                </p>
+            </div>
         </div>
     </div>
 </div>
+
+<script>
+  // Terminal typing animation
+  document.addEventListener('DOMContentLoaded', function() {
+    const terminal = document.getElementById('terminal-container');
+    const line1 = document.getElementById('line1');
+    const line2 = document.getElementById('line2');
+    const line3 = document.getElementById('line3');
+    const lsOutput = document.getElementById('ls-output');
+    const passionOutput = document.getElementById('passion-output');
+    const cursor = document.querySelector('.terminal-cursor');
+    
+    // Start animation when terminal is in viewport
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        startTerminalAnimation();
+        observer.disconnect();
+      }
+    }, { threshold: 0.5 });
+    
+    observer.observe(terminal);
+    
+    function startTerminalAnimation() {
+      // First command
+      line1.classList.add('terminal-typing');
+      
+      setTimeout(() => {
+        // Move cursor to next line
+        line1.after(cursor);
+        
+        // Second command
+        setTimeout(() => {
+          line2.classList.add('terminal-typing');
+          
+          setTimeout(() => {
+            // Show ls output
+            lsOutput.style.display = 'block';
+            line2.after(cursor);
+            
+            // Third command
+            setTimeout(() => {
+              line3.classList.add('terminal-typing');
+              
+              setTimeout(() => {
+                // Show passion output
+                passionOutput.style.display = 'block';
+              }, 800); // Faster display
+            }, 600); // Faster typing
+          }, 800); // Faster display
+        }, 300); // Faster typing
+      }, 800); // Faster initial delay
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Easter Egg Button Counter
+    const easterEggButton = document.getElementById('easterEggButton');
+    const clickCounter = document.getElementById('clickCounter');
+    let clickCount = 0;
+    
+    easterEggButton.addEventListener('click', function() {
+      clickCount++;
+      clickCounter.textContent = clickCount;
+      
+      // Add a small animation on click
+      this.style.transform = 'scale(1.1)';
+      setTimeout(() => {
+        this.style.transform = 'none';
+      }, 150);
+      
+      if (clickCount >= 10) {
+        // Reset counter
+        clickCount = 0;
+        clickCounter.textContent = clickCount;
+        
+        // Call the unified Easter Egg function from layout.html
+        if (typeof triggerMarioEasterEgg === 'function') {
+          triggerMarioEasterEgg();
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+    #about-me {
+        scroll-margin-top: 100px; /* Adjust based on your navbar height */
+    }
+    
+    .section-title {
+        color: #CCD6F6;
+        position: relative;
+        display: inline-block;
+        margin-bottom: 40px;
+    }
+    
+    .section-title::after {
+        content: '';
+        position: absolute;
+        width: 70px;
+        height: 4px;
+        background-color: rgba(87, 223, 194, 0.3);
+        bottom: -10px;
+        left: 0;
+        border-radius: 2px;
+    }
+    
+    .section-number {
+        font-family: monospace;
+        color: #57DFC2;
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    
+    .easter-egg-button {
+        display: inline-block;
+        color: #57DFC2;
+        cursor: pointer;
+        padding: 2px 8px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        font-family: monospace;
+    }
+    
+    .easter-egg-button:hover {
+        background-color: rgba(87, 223, 194, 0.2);
+        transform: translateY(-2px);
+    }
+    
+    .easter-egg-button:active {
+        transform: translateY(0);
+    }
+    
+    #clickCounter {
+        font-weight: bold;
+    }
+    
+    /* Super Mario Easter Egg Styles */
+    .mario-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        z-index: 9999;
+        pointer-events: none;
+    }
+    
+    .mario {
+        position: absolute;
+        bottom: 0;
+        left: -50px;
+        width: 50px;
+        height: 50px;
+        background-image: url('https://storage.googleapis.com/portfolio_static_content/mario-run.gif');
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation: marioRun 0.8s linear forwards; /* Super fast speed! */
+    }
+    
+    @keyframes marioRun {
+        0% {
+            left: -50px;
+        }
+        100% {
+            left: calc(100% + 50px); /* Ensure Mario runs completely off screen */
+        }
+    }
+</style>

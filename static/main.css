@@ -14,6 +14,10 @@
   color: #6b7691;
 }
 
+.footer-button:hover {
+  color: #5DEDCD;
+}
+
 .navbar-text {
   color: #8892b0;
 }

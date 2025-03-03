@@ -1,0 +1,126 @@
+/* 8-bit style pixel font for certain elements */
+@font-face {
+  font-family: 'PixelFont';
+  src: url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+}
+
+/* Custom cursor for interactive elements */
+.custom-cursor {
+  cursor: url('https://storage.googleapis.com/portfolio_static_content/mario-cursor.png'), auto;
+}
+
+/* 8-bit style button hover effect */
+.btn-pixel:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 8px #57DFC2;
+  transition: all 0.2s ease;
+  image-rendering: pixelated;
+}
+
+/* Code-like animation for text */
+.typing-effect {
+  overflow: hidden;
+  border-right: .15em solid #57DFC2;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em;
+  animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #57DFC2 }
+}
+
+/* Easter egg - hidden pixel art that appears on hover */
+.easter-egg {
+  position: relative;
+}
+
+.easter-egg:hover::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 32px;
+  height: 32px;
+  background-image: url('https://storage.googleapis.com/portfolio_static_content/mario-mushroom.png');
+  background-size: contain;
+  opacity: 0.8;
+  transform: scale(0);
+  animation: pop-in 0.3s forwards;
+}
+
+@keyframes pop-in {
+  to { transform: scale(1); }
+}
+
+/* Terminal-style section */
+.terminal-section {
+  background-color: #0a0a0a;
+  border-radius: 5px;
+  padding: 20px;
+  font-family: 'Courier New', monospace;
+  color: #57DFC2;
+  border: 1px solid #57DFC2;
+  box-shadow: 0 0 10px rgba(87, 223, 194, 0.2);
+  letter-spacing: -0.5px; /* Make letters closer together */
+}
+
+.terminal-section::before {
+  content: "tadeo@portfolio:~$ ";
+  font-weight: bold;
+}
+
+/* Terminal typing animation */
+.terminal-line {
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  width: 0;
+  display: inline-block;
+}
+
+/* Horizontal cursor for terminal */
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 2px;
+  background-color: #57DFC2;
+  position: relative;
+  bottom: 3px;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Faster typing animation */
+@keyframes fastTyping {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+.terminal-typing {
+  animation: fastTyping 0.8s steps(30, end) forwards;
+}
+
+/* Retro computer loading bar */
+.loading-bar {
+  height: 5px;
+  background: linear-gradient(to right, #57DFC2, #57DFC2);
+  background-size: 20% 100%;
+  animation: loading 2s linear infinite;
+}
+
+@keyframes loading {
+  0% { background-position: -50% 0; }
+  100% { background-position: 150% 0; }
+} 

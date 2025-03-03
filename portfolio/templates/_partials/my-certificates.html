@@ -1,0 +1,154 @@
+<div class="row certificates-section" id="certificates" style="margin-top: 1.5rem;">
+    <div class="col-md-12 my-2">
+        <h3 class="fw-bolder section-title" style="color: #CCD6F6; text-align: left;">
+            My Certificates
+        </h3>
+    </div>
+    <div class="row text-center mb-4">
+        <div id="carouselExample" class="carousel slide certificate-carousel">
+            <div class="carousel-inner">
+               {% for cert in certificates %}
+                <div class="carousel-item{% if forloop.first %} active{% endif %}">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 text-center">
+                            <div class="certificate-card" onclick="window.open('{{cert.url}}');">
+                                <div class="certificate-image-container">
+                                    <img src="{{cert.image}}" class="img-fluid rounded rounded-4 certificate-image" alt="{{cert.title}}">
+                                </div>
+                                <div class="certificate-content">
+                                    <h5 class="text-light fs-4 certificate-title">{{cert.title}}</h5>
+                                    <div class="px-3">
+                                        <p class="light-blue-color text-start fs-6">{{cert.desc}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev custom-carousel-control" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next custom-carousel-control" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+            <div class="carousel-indicators custom-indicators">
+                {% for cert in certificates %}
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="{{forloop.counter0}}" {% if forloop.first %}class="active" aria-current="true"{% endif %} aria-label="Slide {{forloop.counter}}"></button>
+                {% endfor %}
+            </div>
+        </div>                        
+    </div>            
+</div>
+
+<style>
+    .certificates-section {
+        padding-top: 10px;
+    }
+    
+    .certificate-carousel {
+        margin-top: 1.5rem;
+    }
+    
+    .certificate-card {
+        background-color: rgba(17, 33, 64, 0.7);
+        border: 1px solid rgba(108, 117, 125, 0.25);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1rem 0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(5px);
+    }
+    
+    .certificate-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+    
+    .certificate-image-container {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .certificate-image {
+        transition: transform 0.5s ease;
+        max-height: 350px;
+        width: 100%;
+        object-fit: contain;
+    }
+    
+    .certificate-card:hover .certificate-image {
+        transform: scale(1.03);
+    }
+    
+    .certificate-title {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 1rem;
+    }
+    
+    .certificate-title::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #57DFC2;
+        transition: width 0.3s ease;
+    }
+    
+    .certificate-card:hover .certificate-title::after {
+        width: 100%;
+    }
+    
+    .certificate-content {
+        text-align: left;
+    }
+    
+    .custom-carousel-control {
+        width: 40px;
+        height: 40px;
+        background-color: rgba(10, 25, 47, 0.5);
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0.7;
+        transition: opacity 0.3s ease, background-color 0.3s ease;
+    }
+    
+    .custom-carousel-control:hover {
+        opacity: 1;
+        background-color: rgba(87, 223, 194, 0.3);
+    }
+    
+    .custom-indicators {
+        bottom: -30px;
+    }
+    
+    .custom-indicators button {
+        width: 30px;
+        height: 5px;
+        border-radius: 0;
+        background-color: rgba(87, 223, 194, 0.3);
+        border: none;
+        margin: 0 5px;
+        transition: all 0.3s ease;
+    }
+    
+    .custom-indicators button.active {
+        background-color: #57DFC2;
+        width: 40px;
+    }
+    
+    .custom-indicators button:hover {
+        background-color: rgba(87, 223, 194, 0.6);
+    }
+</style>
